@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>redo1</title>
+    <style>
+      html {
+        width: 100%;
+        height: 100%;
+        color: white;
+      }
+      body {
+        background-image: url("white\ background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* height: 800px;
+        width: 1000px;*/
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 25px;
+      }
+      div {
+        margin: 20px;
+      }
+      .top {
+        font-size: 40px;
+        color: rgb(45, 44, 112);
+      }
+      .body {
+        margin: 100px 300px;
+        border: 5px solid white;
+      }
+      .number {
+        font-weight: bold;
+        font-size: 200px;
+        color: black;
+      }
+      .grid {
+        display: flex;
+
+        gap: 50px;
+        justify-content: center;
+      }
+      .grid > div {
+        background-color: rgb(16, 16, 95);
+        padding: 10px;
+        width: fit-content;
+        height: fit-content;
+      }
+      .grid > div:hover {
+        background-color: rgb(13, 54, 13);
+      }
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="body">
+      <div class="top">COUNTER</div>
+      <div class="number">0</div>
+      <div class="grey"></div>
+      <div class="grid">
+        <div class="count left">lower count</div>
+        <div class="count right">add count</div>
+      </div>
+    </div>
+    <script>
+      var num = 0;
+      var number = document.querySelector(".number");
+      var counts = document.querySelectorAll(".count");
+
+      counts.forEach((count) => {
+        count.addEventListener("click", function (event) {
+          var counter = event.target;
+
+          if (counter.classList.contains("left")) {
+            num--;
+          } else if (counter.classList.contains("right")) {
+            num++;
+          }
+          number.innerHTML = num;
+          if (num < 0) {
+            number.style.color = "red";
+          } else if (num > 0) {
+            number.style.color = "green";
+          } else {
+            number.style.color = "black";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

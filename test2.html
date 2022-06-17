@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            dbjbn
+        </title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html,body{
+                background-color: aliceblue;
+                color: rgb(25, 25, 66);
+                font-size: 0;
+                font-weight: bolder;
+            }
+            .rotate{
+
+                transform: rotateZ(180deg);
+                transition : transform 0.2s;
+            }
+            .box{
+                margin: 10% 20%;
+            }
+            .font{
+                font-size: 50px;
+            }
+            .sign{
+                position: fixed;
+            }
+            .slide{
+                transform: rotateZ(-180deg);
+                transition : transform 0.2s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="sign font"></div>
+            
+        </div>
+        <script>
+            var sign = document.querySelector('.sign')
+            var minus = document.querySelector('.minus')
+            var box = document.querySelector('.box')
+            sign.innerHTML = '+'
+            sign.addEventListener('click', function(){
+                if(sign.innerHTML == '+'){sign.classList.add('rotate')
+                sign.innerHTML = '_'
+                sign.classList.remove('slide')
+            }else{sign.innerHTML = '+'
+        sign.classList.remove('rotate')
+        sign.classList.add('slide')}
+            })
+        </script>
+    </body>
+    </document>

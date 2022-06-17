@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Document reader</title>
+        <style>
+            form{
+                background-color: white;
+                color: rgb(52 152 219 / 82%);
+                font-size: 12px;
+                border-radius: 0 0 15px 15px;
+                box-shadow:1px 1.5px 1px rgba(52,152, 219,0.7);
+                padding: 1.5%;
+            }
+            form .field-label{
+                width: max-content;
+            }
+            .frm-row{
+                display: flex;
+                justify-content: space-around;
+                font-family: sans-serif;
+
+            }
+            .section{
+                display: flex;
+                flex-direction: column;
+                justify-items: flex-end;
+                gap: 5px;
+                margin-bottom: 5%;
+            }
+            .field .forcss{
+                background-color:rgba(46, 50, 52, 0.82);
+                border: 1px solid white;
+                text-decoration: none;
+                font-size: 12px;
+                padding: 2%;
+                color:   rgba(255,255,255, 0.9);
+                text-decoration: none;
+                border-radius: 5px;
+            }
+            .field .forcss:active{
+                text-decoration: none;
+                border: none;
+                border: 2px solid rgb(52 152 219 / 82%);
+            }
+            .below{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .slider-input{
+                background-color: inherit;
+                color: white;
+                text-decoration: none;
+                border: none;
+            }
+            .form-footer>button{
+                border: none;
+                margin-top: 15px;
+                font-size: 16px;
+                color: rgba(255,255,255, 0.9);
+                background-color: rgba(5, 92, 150, 0.7);
+                padding: 8px;
+                border-radius: 5px;
+                margin-left: 5px;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="smart-wrap">
+            <div class="smart-forms smart-container wrap-max">
+    
+                             
+    <form method="GET" name="smart-form" id="smart-form">         	
+    <div class="form-body theme-blue">
+                        
+                            <div class="frm-row">
+                            <div class="colm colm2">
+                                <div class="section">
+                                    <label for="brand" class="field-label">Hersteller:</label>
+                                    <label class="field select">
+                                        <select id="brand" name="brand" class="forcss">
+                                            <option value="Alle">Alle</option>
+                                            <option value="Acer">Acer</option>
+                                            <option value="AOC">AOC</option>
+                                            <option value="Alienware">Alienware</option>
+                                            <option value="Asus">Asus</option>
+                                            <option value="BenQ">BenQ</option>
+                                            <option value="Dell">Dell</option>
+                                            <option value="EIZO">Eizo</option>
+                                            <option value="Elo">Elo</option>
+                                            <option value="Fujitsu">Fujitsu</option>
+                                            <option value="GigaByte">GigaByte</option>
+                                            <option value="HANNspree">HANNspree</option>
+                                            <option value="HP">HP</option>
+                                            <option value="Huawei">Huawei</option>
+                                            <option value="Iiyama">Iiyama</option>
+                                            <option value="LC">LC</option>
+                                            <option value="Lenovo">Lenovo</option>
+                                            <option value="LG">LG</option>
+                                            <option value="MSI">MSI</option>
+                                            <option value="NEC">NEC</option>
+                                            <option value="Neovo">Neovo</option>
+                                            <option value="Peaq">Peaq</option>
+                                            <option value="Philips">Philips</option>
+                                            <option value="Razer">Razer</option>
+                                            <option value="Samsung">Samsung</option>
+                                            <option value="Viewsonic">Viewsonic</option>
+                                            <option value="Xiaomi">Xiaomi</option>
+                                            <option value="Zowie">Zowie</option>
+                                            
+                      
+                                        </select>
+                                        <i class="arrow double"></i>                    
+                                    </label>  
+                                </div><!-- end section -->
+                              </div>
+                              
+                            <div class="colm colm2">
+                                <div class="section">
+                                    <label for="resolution" class="field-label">Auflösung:</label>
+                                    <label class="field select">
+                                        <select id="resolution" name="resolution" class="forcss">
+                                            <option value="Alle">Alle</option>
+                                            <option value="1920x1080">1920x1080 (FULL HD)</option>
+                                            <option value="2560x1440" selected>2560x1440 (WQHD)</option>
+                                            <option value="3840×2160">3840×2160 (4K)</option>
+                                            <option value="1920x1200">1920x1200</option>
+                                            <option value="2560x1080">2560x1080</option>
+                                            <option value="2560x1600">2560x1600</option>                                       
+                                            <option value="3440x1440">3440x1440</option>
+                                            <option value="3840×1600">3840×1600</option>
+                                            <option value="4096×2160">4096×2160</option>
+                                            <option value="5120x1440">5120x1440</option>
+                                            
+                                        </select>
+                                        <i class="arrow double"></i>                    
+                                    </label>  
+                                </div><!-- end section -->
+                              </div>
+                        
+                        
+                            <div class="colm colm1">
+                                <div class="section">
+                                    <label for="size" class="field-label">Größe:</label>
+                                    <label class="field select">
+                                        <select id="size" name="size" class="forcss">
+                                            <option value="Alle">Alle</option>                                        
+                                            <option value="22">22"</option>
+                                            <option value="24">24"</option>
+                                            <option value="27" selected>27"</option>
+                                            <option value="30">30"</option>
+                                            <option value="32">32"</option>
+                                            <option value="34">34"</option>
+                                            <option value="38">38"</option>
+                                            <option value="48">48"</option>
+                                        </select>
+                                        <i class="arrow double"></i>                    
+                                    </label>  
+                                </div><!-- end section -->
+                            </div>
+                              
+                            <div class="colm colm1-1">
+                                <div class="section">
+                                    <label for="panel" class="field-label">Paneltechnologie:</label>
+                                    <label class="field select">
+                                        <select id="panel" name="panel" class="forcss">
+                                            <option value="Alle">Alle</option>
+                                            <option value="VA">VA</option>
+                                            <option value="TN">TN</option>
+                                            <option value="IPS" selected>IPS</option>
+                                            
+                                        </select>
+                                        <i class="arrow double"></i>                    
+                                    </label>  
+                                </div><!-- end section -->
+                            </div>
+                        
+                        
+                            <div class="colm colm1-1">
+                                <div class="section">
+                                    <label for="colour" class="field-label">Farbe:</label>
+                                    <label class="field select">
+                                        <select id="colour" name="farbe" class="forcss">
+                                            <option value="Alle">Alle</option>
+                                            <option value="Schwarz">Schwarz</option>
+                                            <option value="Anthrazit">Anthrazit</option>
+                                            <option value="Grau">Grau</option>
+                                            <option value="Weiß">Weiß</option>
+                                        </select>
+                                        <i class="arrow double"></i>                    
+                                    </label>  
+                                </div><!-- end section -->
+                            </div>
+       <!-- new frm-row end -->
+                                                  
+                            <div class="colm colm1">
+                                <div class="section">
+                                    <label for="reactionTime" class="field-label">Reaktionszeit*:</label>
+                                    <label class="field select">
+                                        <select id="reactionTime" name="reactionTime" class="forcss">
+                                            <option value="1">1 ms</option>
+                                            <option value="2">2 ms</option>
+                                            <option value="4">4 ms</option>
+                                            <option value="6">6 ms</option>
+                                            <option value="8">8 ms</option>
+                                            <option value="10" selected>10 ms</option>
+                                        </select>
+                                        <i class="arrow double"></i>                    
+                                    </label>  
+                                </div><!-- end section -->
+                            </div>
+                    
+                            <div class="colm colm1">
+                                <div class="section">
+                                    <label for="colour" class="field-label">Curved:</label>
+                                    <label class="field select">
+                                        <select id="curved" name="curved" class="forcss">
+                                            <option value="Egal">Egal</option>
+                                            <option value="1">Ja</option>
+                                            <option value="0">Nein</option>
+                                        </select>
+                                        <i class="arrow double"></i>                    
+                                    </label>  
+                                </div><!-- end section -->
+                            </div>
+                              
+                            <div class="colm colm1">
+                                <div class="section">
+                                    <label for="hertz" class="field-label">Bildwiederholrate:</label>
+                                    <label class="field select">
+                                        <select id="hertz" name="hertz" class="forcss">
+                                            <option value="60" selected>60 Hz</option>
+                                            <option value="100">100 Hz</option>
+                                            <option value="120">120 Hz</option>
+                                            <option value="144">144 Hz</option>
+                                            <option value="240">240 Hz</option>
+                                        </select>
+                                        <i class="arrow double"></i>                    
+                                    </label>  
+                                </div><!-- end section -->
+                            </div>
+    
+                                                            <div class="colm colm1">
+                                <div class="section">
+                                    <label for="hertz" class="field-label">Ultrawide-Screen:</label>
+                                    <label class="field select">
+                                        <select id="ultrawide" name="ultrawide" class="forcss">
+                                            <option value="Egal" selected>Egal</option>
+                                            <option value="1">Ja</option>
+                                            <option value="0">Nein</option>
+                                        </select>
+                                        <i class="arrow double"></i>                    
+                                    </label>  
+                                </div><!-- end section -->
+                            </div>
+      
+                        
+                              </div>
+                            
+                            
+                            
+      
+                            <div class="frm-row">
+                            <div class="colm colm1-1">
+                                <div class="section">
+                                    <div class="option-group field">
+                                    
+                                        <label class="switch switch-blue" style="margin-left:3%;">
+                                            <input type="checkbox" id="rate1" name="hdmi" value="1" checked="">
+                                            <span class="switch-label" data-on="Ja" data-off="Nein"></span>
+                                            <span> HDMI </span>
+                                        </label>
+                                                        
+                                        <label class="switch switch-blue" style="margin-left:3%;">
+                                            <input type="checkbox" id="rate1" name="dp" value="1">
+                                            <span class="switch-label" data-on="Ja" data-off="Nein"></span>
+                                            <span> DisplayPort </span>
+                                        </label>
+                                        
+                                        <label class="switch switch-blue" style="margin-left:3%;">
+                                            <input type="checkbox" id="rate1" name="usbc" value="1">
+                                            <span class="switch-label" data-on="Ja" data-off="Nein"></span>
+                                            <span> USB-C </span>
+                                        </label>
+                                        
+                                        <label class="switch switch-blue" style="margin-left:3%;">
+                                            <input type="checkbox" id="rate1" name="dvi" value="1">
+                                            <span class="switch-label" data-on="Ja" data-off="Nein"></span>
+                                            <span> DVI </span>
+                                        </label>
+                                        
+                                        <label class="switch switch-blue" style="margin-left:3%;">
+                                            <input type="checkbox" id="rate1" name="vga" value="1">
+                                            <span class="switch-label" data-on="Ja" data-off="Nein"></span>
+                                            <span> VGA </span>
+                                        </label>
+                                      
+                                
+                                        
+                                         <input type="text" id="budget" name="price" class="slider-input" value="0€ - 300€" style="margin-top:5px;">
+                                     
+                                    <div class="spacer-b15">
+                                    </div>
+                                    
+                                    <div class="slider-wrapper blue-slider">
+                                      
+                                        <div id="budget_slider"></div>
+                                    </div><!-- end .slider-wrapper -->
+                                </div><!-- end section --> 
+                                  
+                                <div class="colm colm12" style="margin-top:2%;">
+                                <details>
+                                    <summary><strong>weitere Eigenschaften</strong></summary>
+                                    <div class="frm-row">
+                                        <div class="colm colm1">
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <div class="frm-row">
+                                        <div class="colm colm1">
+                                            <div class="section">
+                                                <label for="bluelightfilter" class="field-label">Blaulichtfilter:</label>
+                                                <label class="field select">
+                                                    <select id="bluelightfilter" name="bluelightfilter">
+                                                        <option value="Egal">Egal</option>
+                                                        <option value="Ja">Ja</option>
+                                                    </select>
+                                                    <i class="arrow double"></i>                    
+                                                </label>  
+                                            </div><!-- end section -->
+                                        </div>
+                                        <div class="colm colm1">
+                                            <div class="section">
+                                                <label for="energyclass" class="field-label">Energieklasse:</label>
+                                                <label class="field select">
+                                                    <select id="energyclass" name="energyclass">
+                                                        <option value="Alle">Alle</option>
+                                                        <option value="A++">A++</option>
+                                                        <option value="A+">A+</option>
+                                                        <option value="A">A</option>
+                                                        <option value="B">B</option>
+                                                        <option value="C">C</option>
+                                                        <option value="D">D</option>
+                                                    </select>
+                                                    <i class="arrow double"></i>                    
+                                                </label>  
+                                            </div><!-- end section -->
+                                        </div>
+                                    </div>
+                                    <div class="frm-row">
+                                        <div class="colm colm1">
+                                            <div class="section">
+                                                <label for="hdr" class="field-label">HDR:</label>
+                                                <label class="field select">
+                                                    <select id="hdr" name="hdr">
+                                                        <option value="Egal">Egal</option>
+                                                        <option value="Ja">Ja</option>
+                                                    </select>
+                                                    <i class="arrow double"></i>                    
+                                                </label>  
+                                            </div><!-- end section -->
+                                        </div>
+                                        <div class="colm colm6">
+                                            <div class="section">
+                                                <label for="surface" class="field-label">Displayoberfläche:</label>
+                                                <label class="field select">
+                                                    <select id="surface" name="surface">
+                                                        <option value="Egal">Egal</option>
+                                                        <option value="Matt">Matt</option>
+                                                        <option value="Glanz">Glanz</option>
+                                                    </select>
+                                                    <i class="arrow double"></i>                    
+                                                </label>  
+                                            </div><!-- end section -->
+                                        </div>
+                                    </div>
+                                    <div class="frm-row">
+                                        <div class="colm colm6">
+                                            <div class="section">
+                                                <label for="vesa" class="field-label">Vesa Halterung:</label>
+                                                <label class="field select">
+                                                    <select id="vesa" name="vesa">
+                                                        <option value="Egal">Egal</option>
+                                                        <option value="Ja">Ja</option>
+                                                    </select>
+                                                    <i class="arrow double"></i>                    
+                                                </label>  
+                                            </div><!-- end section -->
+                                        </div>
+                                        <div class="colm colm6">
+                                            <div class="section">
+                                                <label for="speaker" class="field-label">Lautsprecher:</label>
+                                                <label class="field select">
+                                                    <select id="speaker" name="speaker">
+                                                        <option value="Egal">Egal</option>
+                                                        <option value="Ja">Ja</option>
+                                                    </select>
+                                                    <i class="arrow double"></i>                    
+                                                </label>  
+                                            </div><!-- end section -->
+                                        </div>
+                                    </div>
+                                </details>
+                                  
+                            </div>
+                        </div>
+                          </div>
+                          <div class="form-footer">
+                        <button type="submit" class="button btn-blue">Monitore finden</button>
+                        <button type="reset" class="button"> Auswahl zurücksetzen </button>
+                    </div><!-- end .form-footer section -->
+                                                   
+                        </div>
+                    </div><!-- end .form-body section -->
+      
+    
+    
+                    
+                
+            </div><!-- end .smart-forms section -->
+        </div><!-- end .smart-wrap section --> 
+    </div>
+            </div></form>
+      
+         <script type="text/javascript">
+    
+    
+    
+            $( "#budget_slider" ).slider({
+                    range: true,
+                    animate: true,
+                    values: [80, 3400],
+                    min: 0,
+                    max: 3500,
+                    slide: function(event, ui) {
+                        $("#budget").val(ui.values[0] +"€ - "+ ui.values[1]+"€");
+                    }
+                });
+                $("#budget").val($("#budget_slider").slider("values")[0] + "€ - " + $("#budget_slider").slider("values")[1] + "€");
+                // $("#budget_slider").slider("pips", { rest: "label", prefix: "€", suffix: "" });
+                $("#budget_slider").slider("float", { prefix: "", suffix: "€", pips: true });
+    
+    // muss weg
+    </script>
+    </body>
+</html>

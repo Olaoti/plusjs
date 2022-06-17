@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<style>
+    .box{
+        width: 400px;
+        height: 3000px;
+        border: 1px solid green;
+        font-size: 40px;
+        padding: 30px;
+    }
+</style>
+    </head>
+    <body>
+        <div class="box">wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>
+            wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>
+            wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>
+            wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>wooow<br>gg</div>
+        <script>
+            var b = window.innerHeight
+            var box = document.querySelector('.box')
+            var color= ['blue', 'green', 'yellow', 'orange',];
+            
+            window.onscroll = function(){
+                var i = 0
+                box.style.color = color[i]
+                var top = window.pageYOffset;
+                if(top < b){
+                    box.style.color = color[i]
+                    console.log(top)
+                }else if(top >b && top<b*2){ 
+                    i++;  box.style.color = color[i]}
+            }
+               /* if (top>100 && top<200){
+                    console.log(top)
+                   
+                    console.log('hk')
+                    box.style.color = color[0]
+                    top=0
+                }else if(top > 200 && top <300){
+                
+                  box.style.color = 'black'
+                }
+                else{box.style.color = color[1]}
+            }
+           /* var window = document.querySelector('.box')
+            document.addEventListener("scroll",function(){
+                document.lastScroll = new Date().getTime()
+                console.log(document.lastScroll)
+            });
+            function Scroll(){
+                return document.lastScroll && new Date().getTime()<document.lastScroll+500
+            }  var a=  prompt('guess a number')
+            var b = Math.ceil(Math.random()*20)
+           var c = Math.abs(a-b)
+           if(a==b){
+               alert(`The number is ${b} You are right`);
+           }
+          else if(c<4){
+               alert(`The number is ${b}, your guess is high`)
+           }else{
+               alert(`The number is ${b}, your guess is low`)
+           }*/
+        </script>
+    </body>
+</html>

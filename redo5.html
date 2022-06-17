@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>redo</title>
+        
+        <style>
+         
+            * {         
+              margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .html,.body{
+              margin: 0;
+              padding: 0;
+              width: 100%;
+                font-size: 62%;
+              font-family: Kumbh Sans;
+                color: hsl(219, 9%, 45%);
+            }
+
+            .flex{
+                font-size: 1em;
+                display: flex;
+                align-items: center;
+               margin: 1% 20%;
+                gap: 2%;
+               margin-bottom: 4%;
+               padding-bottom: 0;
+                border-bottom: 2px solid  hsl(223, 64%, 98%);
+            
+            }
+           
+            .middle{
+            font-size: 1em;
+                display: flex;
+                gap: 4%;
+               
+               
+            }
+            .last{
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              margin-left: auto;
+              align-items: center;
+            }
+            .bike{
+              font-weight: 700;
+              font-size: 2em;
+              align-self: bottom;
+             
+            }
+            .forphone{
+              display: none;
+            }
+            .menu{
+              display: none;
+            }
+            .a:hover{
+              border-bottom: 0.2em solid hsl(26, 100%, 55%);
+              
+            }
+           
+           #imgtop{
+             width: 2.5em;
+             
+             border-radius: 50%;
+             border: 0.1em solid hsl(26, 100%, 55%);
+             
+           }
+          .container{
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+             
+             font-size: 1.6em;
+             gap: 12%;
+            margin: 1% 24%;
+           }
+           .top{
+             width: 100%;
+             margin-bottom: 5%;
+           }
+           #img{
+            width: 100%;
+            border-radius: 0.5em;
+           }
+           .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        margin-top: 10px;
+        width: 100%;
+        gap: 20px;
+      }
+      #image {
+        width: 100%;
+       
+        border-radius: 0.2em;
+      }
+      .orange{
+        color: hsl(26, 100%, 55%);
+      }
+      .name{
+        font-size: 0.5em;
+        font-weight: bold
+      }
+      .box2{
+        margin-top: 15%;
+      }
+    
+      .up{
+        font-size: 1.5em;
+        font-weight: 700;
+        margin-top: 0.4em;
+        margin-bottom: 0.8em;
+      }
+      .body{
+        font-size: 0.6em;
+      }
+      .miniflex{
+        display: flex;
+        gap: 5%;
+        font-size: 1em;
+        font-weight: bold;
+
+        align-items: center;
+      }
+      .flexb{
+        margin-top: 5%;
+        margin-bottom: 2%;
+        
+      }
+      .fifty{
+        font-size: 0.6em;
+        color: hsl(26, 100%, 55%);
+        background-color:  hsl(25, 100%, 94%);
+        padding: 0.1em 1.2em;
+      }
+      .cross{
+        font-size: 0.6em;
+        text-decoration: line-through;
+        color: hsl(219, 9%, 45%);
+        font-weight: 700;
+        margin-bottom: 5%;
+      }
+      .control{
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        font-weight: 900;
+        font-size: 0.6em;
+        gap: 4%;
+        align-items: center;
+        text-align: center;
+
+      }
+      .grid1{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        background-color:  hsl(223, 64%, 98%);
+        color: hsl(26, 100%, 55%);
+        border-radius: 0.2em;
+        padding: 7%;
+        height: 100%;
+        align-items: center;
+        
+      }
+      .cart{
+        background-color: hsl(26, 100%, 55%);
+        color: hsl(223, 64%, 98%);
+        border-radius: 0.2em;
+        padding: 7%;
+      }
+      .border {
+        border: 2px solid rgb(255, 94, 0);
+      }
+      .opacity {
+        opacity: 0.6;
+      }
+            @media (orientation:portrait) and (min-width:0) and (max-width:450px) 
+            {
+              .flex{
+                margin: 2% 5%;
+               
+              }
+              .menu{
+                margin-right: 5%;
+              }
+              .bike{
+                font-size: 1.5em;
+              }
+             .menu{
+               display: block;
+               }
+              
+               .middle{
+                 display: none;
+               }
+               .container{
+                 display: block;
+                margin: 0;
+                font-size: 1.5em;
+               }
+               .top{
+                 display: none;
+                 margin-bottom:0;
+               }
+               .grid{
+                display: none;
+               }
+               .forphone{
+                 display: block;
+                 margin: 0;
+               }
+               .box2{
+                margin-top: 0;
+              }
+               #pic{
+                 width: 100%;
+                 
+               }
+               .box2{
+                 margin-top: 0;
+                 margin: 5%;
+               }
+               .up{
+                 font-size: 1em;
+                 margin-bottom: 3%;
+                 margin-top: 0.5em;
+               }
+               .arrows{
+                 display: flex;
+                 margin-top: -50%;
+                 margin-bottom: 45%;                
+               }
+               .arrows>div{
+                padding:2.5% 5%;
+               }
+               .greaterthan{
+                 margin-left: auto;
+               }
+               .arrows>div{
+                 background-color: white;
+                
+                 border-radius: 50%;
+                 text-align: center;
+                 font-weight: bold;
+               }
+               .control{
+                 display: block;
+                 font-weight: bolder;
+               }
+               .miniflex{
+                 gap: 5%;
+               }
+               .grid1,.cart{
+                 padding: 5%;
+                 border-radius: 0.5em;
+               }
+               .grid1{
+                 margin-bottom: 5%;
+               }
+               .flexb{
+                 display: flex;
+                 align-items: center;
+                 margin-top: 5%;
+                
+               }
+               
+               .cross{
+                 margin-left: auto;
+               }
+             }
+             @media screen and (min-width:450px) and (max-width:900px){
+               .flex{
+                 margin: 1% 6%;
+                 font-size: 0.8em;
+               }
+              .container{
+                margin: 1% 8%;
+                font-size: 1.3em;
+                gap: 4%;
+              }
+              .up{
+                font-size: 1.2em
+              }
+             }
+
+            
+        </style>
+    </head>
+    <body>
+    
+        <div class="flex">
+          <div class="menu"><img src="icon-menu.svg" id="menu"></div>
+            <div class="bike boldtext">sneakers</div>
+            <div class="middle">
+            <div class="a">Collections</div>
+            <div class="a">Men</div>
+            <div class="a">Women</div>
+            <div class="a">About</div>
+            <div class="a">Contact</div>
+            </div>
+            <div class="last">
+              <img src="icon-cart.svg" id="cart" />
+              <img src="image-avatar.png" id="imgtop" />
+            </div>
+          </div>
+          <div class="container">
+            <div class="forphone">
+              <div class="picture"><img src="imageone.jpg" id="pic">
+                <div class="arrows">
+                  <div class="arrow lessthan"><</div>
+                   <div class="arrow greaterthan">></div>
+              </div>
+              </div>
+            </div>
+            
+
+            <div class="box1">
+              <div class="top"><img src="imageone.jpg" id="img" /></div>
+              <div class="grid">
+                <div class="image first">
+                  <img src="imageone.jpg" id="image" />
+                </div>
+                <div class="image second">
+                  <img src="imagetwo.jpg" id="image" />
+                </div>
+                <div class="image third">
+                  <img src="imagethree.jpg" id="image" />
+                </div>
+                <div class="image fourth">
+                  <img src="imagefour.jpg" id="image" />
+                </div>
+              </div>
+            </div>
+            <div class="box2">
+              <div class="name orange">SNEAKER COMPANY</div>
+              <div class="up boldtext">Fall limited edition Sneakers</div>
+              <div class="body">
+                 These low-profile sneakers are your perfect casual wear companion.
+                 Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.
+              </div>
+              <div class="flexb">
+              <div class="miniflex">
+                <div class="money boldtext">$125.00</div>
+                <div class="fifty orange">50%</div>
+              </div>
+              <div class="cross">$250.00</div>
+              </div>
+              <div class="control">
+                <div class="grid1">
+                  <div class="sign left">-</div>
+                  <div class="mid">0</div>
+                  <div class="sign right">+</div>
+                </div>
+                <div class="cart">Add to cart</div>
+              </div>
+              </div>
+              </div>
+<script>
+
+  var img = document.getElementById("img");
+      var images = document.querySelectorAll("#image");
+      images.forEach((image) => {
+        image.addEventListener("click", function (event) {
+          var target = event.target;
+          img.src = target.src;
+          target.classList.add("opacity");
+          target.classList.add("border");
+        });
+        document.addEventListener("click", function () {
+          if (image.src != img.src && image.classList.contains("opacity")) {
+            image.classList.remove("opacity");
+            image.classList.remove("border");
+          }
+        });
+      });
+      var signs = document.querySelectorAll(".sign");
+      var i = 0;
+      signs.forEach((sign) => {
+        sign.addEventListener("click", function (event) {
+          var operator = event.target;
+
+          var number = document.querySelector(".middle");
+          number.innerHTML = i;
+          if (operator.classList.contains("left")) {
+            i--;
+            number.innerHTML = i;
+          } else if (operator.classList.contains("right")) {
+            i++;
+            number.innerHTML = i;
+          }
+        });
+      });
+      pictures = ['imageone.jpg','imagetwo.jpg','imagethree.jpg','imagefour.jpg']
+      var pic = document.querySelector('#pic')
+      var i =0
+      var arrows = document.querySelectorAll('.arrow')
+      arrows.forEach((arrow)=>{
+        arrow.addEventListener('click',function(event){
+          var target= event.target
+          if(target.classList.contains('greaterthan')){
+            i++
+           pic.src = pictures[i]
+           if((i > (pictures.length -1))){
+           i = 0
+           }
+          }
+          if(target.classList.contains('lessthan')){
+            i--
+           pic.src = pictures[i]
+           if(i<1){
+           i = 1
+           }
+          }
+        })
+      })
+</script>
+    </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Survey</title>
+        <style>
+
+            html{
+                width: 100%;
+                height: 100%;
+                font-size: 30px;
+            }
+           
+            .div{
+                text-align: center;
+            }
+            .bar{
+                display: flex;
+                margin: 10px auto;
+                gap: 0;
+                height: 25px;
+                width: 200px;
+                border: 1px solid blue;
+            }
+            .left{
+                background-color: blue;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="div">
+            <div class="headtext">Am i a high risk patient?</div>
+            <div class="container">
+            <div class="questions"></div>
+            <div class="answers">
+                <div class="divA"><span class="answer A"> </span> </div>
+                <div class="divB"><span class="answer B"></span></div>
+                <div class="divC"> <span class="answer C"></span></div>
+            </div>
+            </div>
+          <div class="bar">
+            <div class="left"></div>
+            <div class="right"></div>
+         </div>
+        </div>
+        <script> 
+        const quiz = [
+            {
+                question: 'Do you suffer from high blood pressure?',
+                A: 'Yes',
+                B: 'NO',
+                C:'',
+                Answer1: 'Yes'
+            },
+            {
+                question: 'How old are you?',
+                A: 'Less than 66',
+                B: '65-74',
+                C:'Above 75',
+                Answer1: '65-74',
+                Answer2: 'Above 75'
+            },
+            {
+                question: 'Do you suffer from health failure?',
+                A: 'Yes',
+                B: 'NO',
+                C:'',
+                Answer1: 'Yes'
+            },
+            {
+                question: 'Do you suffer diabetes?',
+                A: 'Yes',
+                B: 'NO',
+                C:'',
+                Answer1: 'Yes'
+            },
+            {
+                question: 'Do you have any vascular disease?',
+                A: 'Yes',
+                B: 'NO',
+                C:'',
+                Answer1: 'Yes'
+            },
+            {
+                question: 'What is your gender?',
+                A: 'Male',
+                B: 'Female',
+                C:'',
+                Answer1: 'Female'
+            },
+            {
+                question: 'Here is your result',
+                A:'',
+                B:'',
+                C:''
+            }
+        ]
+        var questions = document.querySelector('.questions')
+  var A = document.querySelector('.A')
+  var B = document.querySelector('.B')
+  var C = document.querySelector('.C')
+  var i = 0;
+  var b = 0
+  questions.innerHTML = quiz[i].question
+  A.innerHTML = quiz[i].A
+  B.innerHTML = quiz[i].B
+  C.innerHTML = quiz[i].C
+  if(quiz[i].C==''){
+      document.querySelector('.divC').style.display='none'
+  }else{
+    document.querySelector('.divC').style.display='block'
+  }
+
+var answers =document.querySelectorAll('.answer')
+answers.forEach((answer)=>{
+    answer.addEventListener('click', function(event){
+        var leftdiv = document.querySelector('.left')
+        var target = event.target
+        if(target.innerHTML == quiz[i].Answer1){
+            b+=1 
+        
+        }else if(target.innerHTML == quiz[i].Answer2){
+            b+=2  
+        }
+        if(b<2){
+            leftdiv.style.backgroundColor='blue'
+        }else if(b===2){
+            leftdiv.style.backgroundColor='yellow'
+        }else{
+            leftdiv.style.backgroundColor='red'
+        }
+        leftdiv.style.width=(b/7)*100+'%'
+
+        i++;
+    questions.innerHTML = quiz[i].question
+  A.innerHTML = quiz[i].A
+  B.innerHTML = quiz[i].B
+  C.innerHTML = quiz[i].C
+  if(quiz[i].C==''){
+      document.querySelector('.divC').style.display='none'
+  }else{
+    document.querySelector('.divC').style.display='block'
+  }
+        console.log(b)
+        if(i===quiz.length-1){
+            i===quiz.length-1
+            questions.style.display = 'none'
+            document.querySelector('.answers').style.display= 'none'
+        }
+    })
+})
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Animation on click to scroll</title>
+        <style>
+              *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                text-decoration: none;
+                outline: none;
+                list-style: none;
+                border: 0;
+                appearance: none;
+            }
+            html{
+                width: 100%;
+                height: 100vh;
+                color: rgb(88, 10, 28);
+                scroll-behavior: smooth;
+            }
+          
+            .container{
+                width: 100%;
+                height: 100%;
+
+            }
+            .down{
+                position: fixed;
+                background-color: black;
+                border: blue;
+                color: white;
+                padding: 5px;
+                font-size: 40px;
+                width: 100%;
+                text-align: center;
+                z-index: 10;
+            }
+            .div{
+               
+                position: relative;
+               display: none;
+            }
+            .active{
+                height: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                z-index: 9;
+                transition: all 0.4s ease;
+            }
+            .left, .right{
+                height: 100vh;
+                width: 100%;
+                vertical-align: center;
+            }
+            .left{
+                padding: 10rem 5rem;
+            }
+            .head{
+                font-size: 3.5rem;
+                margin: 10% auto;
+                text-shadow: 1px 1px 1px rgb(238, 179, 78);
+                color: rgb(85, 10, 41);
+                font-weight: 800;
+                font-family: sans-serif;
+            }
+            .body{
+                font-size: 1.5rem;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+       <div class="down">
+            down
+        </div>
+        <div class="container">
+            <div class="div">
+                <div class="left" style="background-color: rgb(251, 168, 168);">
+                    <div class="head">Make it <br>unique.</div>
+                    <div class="body">
+                      Make your website different from the regular ones. Animations and perfectly responsive layout within your budget
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="mm6.jpg">
+                </div>
+            </div>
+            <div class="div">
+                <div class="left" style="background-color: rgb(125, 163, 251);">
+                    <div class="head">Check this out again</div>
+                    <div class="body">
+                        yaaaayyyyy
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Non quis placeat deleniti reprehenderit exercitationem, possimus,
+                         natus, quod porro provident a dolores commodi neque perferendis quia.
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="mm7.jpg">
+                </div>
+            </div>
+            <div class="div">
+                <div class="left" style="background-color: rgb(162, 255, 162);">
+                    <div class="head">Do not look</div>
+                    <div class="body">
+                        yesss
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Non quis placeat deleniti reprehenderit exercitationem, possimus,
+                         natus, quod porro provident a dolores commodi neque perferendis quia.
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="mm6.jpg">
+                </div>
+            </div>
+            <div class="div">
+                <div class="left" style="background-color: rgb(222, 254, 148);">
+                    <div class="head">Check this out</div>
+                    <div class="body">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Non quis placeat deleniti reprehenderit exercitationem, possimus,
+                         natus, quod porro provident a dolores commodi neque perferendis quia.
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="mm7.jpg">
+                </div>
+            </div>
+        </div>
+        <script>
+            var divs = document.querySelectorAll('.div')
+            var arrays = Array.from(divs)
+            var down = document.querySelector('.down')
+
+            
+            
+            arrays.forEach(array=>{
+                var i=0
+                arrays[i].classList.add('active')
+                
+                down.addEventListener('click', function(event){
+                    i++
+                arrays[i].classList.add('active')
+                window.scrollBy(0,1800)
+                    setTimeout(function(){
+                if(arrays.indexOf(array)!== i){
+                    array.classList.remove('active')
+                }
+            },500)
+                })
+             
+            })
+           
+        </script>
+    </body>
+</html>

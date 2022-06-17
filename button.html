@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> ggege</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            :root{
+                --gradient: linear-gradient( 29deg,
+                    rgb(134, 134, 241),
+                    rgb(183, 237, 250),
+                    rgb(175, 214, 250) ,
+                    rgb(128, 126, 252) ,
+                    rgb(247, 217, 247) ,
+                    rgb(247, 217, 247) ,
+                    rgb(128, 126, 252) ,
+                    rgb(183, 237, 250) ,
+                    rgb(175, 214, 250) ,
+                    rgb(134, 134, 241) 
+                );
+            }
+            html,body{
+               
+                width: 100%;
+                height: 100%;
+                text-transform:uppercase ;
+                font-size: 20px;
+            }
+            .button{
+                margin:20% auto;
+                padding: 1% 2%;
+                width: max-content;
+                background-image: var(--gradient);
+                background-size: 300%;
+                background-position: middle;
+                animation: gra 10s infinite alternate-reverse;
+                cursor: pointer;
+            }
+           .button:hover{
+                animation-play-state: paused;
+           }
+            @keyframes gra{
+                0%{
+                    background-position: left;
+                }
+                50%{
+                    background-position: middle;
+
+                }
+                100%{
+                    background-position: right;
+                }
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="button">
+            Get started 
+        </div>
+    </body>
+</html>

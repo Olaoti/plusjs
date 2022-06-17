@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>calculator</title>
+    <style>
+      *{
+        margin: 0;
+        padding :0;
+        box-sizing: border-box;
+      }
+      html {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        background-color: white;
+        font-size: 62%;
+      }
+      .container {
+      margin: 3% 15%;
+      width: inherit;
+      }
+      .box {
+        display: grid;
+        text-align: center;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 15px;
+        color: #443f3f;
+        padding: 5%;
+        background-color: rgb(42, 115, 128);
+
+        font-weight: bold;
+      }
+      .box > div {
+        background-color: white;
+        border-radius: 0.1em;
+        padding: 0.4em;
+        font-size: 2em;
+      }
+      .box > div:hover {
+        color: red;
+      }
+      .box > div:active {
+        background-color: #cecece;
+      }
+      .reset {
+        grid-column: 1/3;
+      }
+      .equals {
+        grid-column: 3/5;
+      }
+      .top{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-between;
+      height: 20%;
+        background-color:rgb(42, 115, 128);
+        
+      }
+      .a{
+        grid-column: 1/3;
+           }
+           .display{
+             display: none;
+           }
+           .question{
+             display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            font-size: 2em;
+            padding: 1% 4%;
+            }
+            .nodisplay{
+              display: none;
+            }
+          @media (orientation:portrait) and (min-width:0px) and (max-width:500px){
+            .container{
+              margin: 1%;
+            
+            }
+          }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+       <div class="question">
+         <div class="ques"></div>
+          <div class="a"></div>
+          <div id="sign"></div>
+          <div class="b"></div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="no seven">7</div>
+          <div class="no eight">8</div>
+          <div class="no nine">9</div>
+          <div class="del">Del</div>
+          <div class="no four">4</div>
+          <div class="no five">5</div>
+          <div class="no six">6</div>
+          <div class="sign plus">+</div>
+          <div class="no one">1</div>
+          <div class="no two">2</div>
+          <div class="no three">3</div>
+          <div class="sign minus">-</div>
+          <div class="no point">.</div>
+
+          <div class="no zero">0</div>
+          <div class="sign divide">/</div>
+          <div class="sign multiply">x</div>
+          <div class="reset">reset</div>
+          <div class="equals">=</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      
+     var numbers = document.querySelectorAll('.no')
+     var numbers = document.querySelectorAll('.no')
+      var signs = document.querySelectorAll('.sign')
+      const a = document.querySelector('.a')
+      var b = document.querySelector('.b')
+      var ques = document.querySelector('.ques')
+      var operator = document.querySelector('#sign')
+      var equals = document.querySelector('.equals')
+      var del = document.querySelector('.del')
+      var reset = document.querySelector('.reset')
+     numbers.forEach((number)=>{
+       number.addEventListener('click',function(){
+          b.innerHTML +=number.innerHTML   
+        })
+      })
+
+      del.addEventListener('click',function(){
+        b.innerHTML = b.innerHTML.slice(0,-1)
+        ques.innerHTML = ques.innerHTML.slice(0,-1)
+      }) 
+      signs.forEach((sign)=>{
+        sign.addEventListener('click', function(event){
+          var target = event.target
+          operator.innerHTML = sign.innerHTML
+          a.innerHTML = b.innerHTML;
+          b.innerHTML = ''
+      equals.addEventListener('click',function(){
+        var c = Number(a.innerHTML)
+          var d = Number(b.innerHTML)
+         if(operator.innerHTML === '+'){
+          b.innerHTML = c + d
+        }
+        if(operator.innerHTML === '-'){
+          b.innerHTML = c-d
+        }
+        if(operator.innerHTML === 'x'){
+          b.innerHTML = c*d
+        }
+        if(operator.innerHTML === '/'){
+          b.innerHTML = c/d
+        }
+        operator.innerHTML = ''
+      })
+    })
+      })
+      reset.addEventListener('click',function(){
+        a.innerHTML =''
+        b.innerHTML =''
+        operator.innerHTML =''
+        ques.innerHTML = ''
+      })
+      document.addEventListener('click',function(event){
+        var target = event. target
+        if(target.classList.contains('no')){
+          ques.innerHTML += target.innerHTML
+        }
+        if(target.classList.contains('sign')){
+          ques.innerHTML += target.innerHTML
+        }
+        })
+    </script>
+  </body>
+</html>

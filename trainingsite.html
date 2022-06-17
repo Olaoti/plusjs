@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Edubook online training</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+        <style>
+            :root{
+                --color-brown:#5a2b22;
+                --color-light-brown :#77392c;
+                --color-pinkish:#ed9e81;
+                --color-light-pink:#f8b69e;
+                --color-silent:#fadbd0;
+                --color-white:#f8eeeb;
+                --color-light:#f9f7f7;
+                --small-font: 1.8em;
+                --big-font:6em;
+                --medium-font:3em;
+                --color-shadow:#e26e57;
+            }
+            *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                text-decoration: none;
+                outline: none;
+                list-style: none;
+                border: 0;
+                appearance: none;
+            }
+            html{
+                width: 100vw;
+                height: 100vh;
+            }
+            body{
+                font-family: Poppins, sans-serif;
+                font-size: 62%;
+                user-select: none;
+                overflow-x: hidden;
+                background-color: var(--color-white);
+            }
+            h1{
+                font-size: var(--big-font);
+            }
+            h3{
+                font-size: var(--medium-font);
+            }
+            h4{
+                font-size: 2em;
+            }
+            h5{
+                font-size: var(--small-font);
+            }
+            .buttons{
+               display: flex;
+                gap: 10px;
+            }
+            .btn{
+                color: var(--color-brown);
+                background-color: var(--color-silent);
+                padding: 1.2em;
+                text-align: center;
+                font-size: inherit;
+                box-shadow: .2em .2em .4em var(--color-shadow);
+            }
+          
+            .none{
+                display: none;
+            }
+            .back{
+                position: fixed;
+                z-index: 1;
+            }
+            .circle{
+                width: 9em;
+                height: 9em;
+                border-radius: 50%;
+                background-color: rgba(239, 118, 91, 0.1);
+                animation: move 30s infinite alternate-reverse;
+            }
+            .rec{
+                width: 16em;
+                height: 2em;
+                background-color: rgba(246, 129, 102, 0.1);
+                animation: movee 30s infinite alternate-reverse;
+            }
+            .one{
+                top: 50%;
+                left: 30%;
+                width: 6em;
+                height: 6em;
+            }
+            .two{
+                top: 20%;
+                left: 70%;
+                transform: rotateZ(20deg);
+                animation: movee 30s infinite alternate-reverse;
+                background-color: inherit;
+                border: 2px solid rgba(246, 129, 102, 0.1);
+            }
+            .three{
+                top:35% ;
+                left:80%;
+                width: 12em;
+                height: 12em;
+            }
+            .four{
+                top: 80%;
+                left: 60%;
+                animation: movee 30s infinite alternate-reverse;
+
+            }
+            .five{
+                top: 60%;
+                left:6%;
+                width: 12em;
+                height: 12em;
+            }
+            .six{
+                top: 50%;
+                left: 35%;
+            }
+            .seven{
+                top: 12%;
+                left: 15%;
+                animation: movee 30s infinite alternate-reverse;
+
+            }
+            .two::before{
+                box-sizing: border-box;
+                content:'';
+                margin-right:2em;
+                width: 10px;
+                position: absolute;
+                background-color:rgba(239, 118, 91, 0.25); 
+                top: 0;
+                bottom: 0;
+                left: -10%;
+                height: 100%;
+            }
+            @keyframes move{
+                0%{
+                    transform: translate(30px,40px) rotateZ(30deg);
+                }
+                50%{
+                    transform: translate(0) rotateZ(0);
+                }
+                100%{
+                    transform: translate(50px,60px) rotateZ(50deg);
+                }
+            }
+            @keyframes movee{
+                0%{
+                    transform: translate(0) rotateZ(0);
+                }
+                50%{
+                    transform: translate(18px,50px) rotateZ(40deg);
+                }
+                100%{
+                    transform: translate(0) rotateZ(0);
+                }
+              
+            }
+            /*----end of declaration of vars----*/
+            .headflex{
+                display: flex;
+                position: fixed;
+                width: 100%;
+                justify-content: space-between;
+                font-size: 2.2em;
+                padding: .5em 2.5em .3em .3em;
+                color: var(--color-brown);
+                background-color: var(--color-silent);
+                box-shadow: 0 0  5px var(--color-shadow);
+                z-index: 12;
+            }
+            .headflex #logo{
+                height: 2.5em ;
+            }
+            .headflex .innerflex{
+                display: flex;
+                gap: 2em;
+                z-index: 10;
+            }
+            .headflex .innerflex>div{
+                display: flex;
+                align-items: center;
+            }
+            .headflex .innerflex .courses{
+                position: relative;
+                z-index: 9;
+            }
+            .headflex .innerflex .undercourse{
+               position: absolute;
+               width: 300%;
+               margin-top: 12em;
+               font-size: .8em;
+               color: var(--color-light-brown);
+               padding: 0.5em 1em;
+               background-color: var(--color-light);
+               border-radius: 15px;
+               z-index: 9 !important;
+            }
+             /*------End of header flex-----*/
+            .mainbody{
+                color: var(--color-brown);
+                z-index: 5;
+                width: 100%;
+                height:100%;
+            }
+            .mainbody .introSection{
+                padding: 10% 15%;
+                display: grid;
+                grid-template-columns: 1.5fr 1fr;
+                gap: 5%;
+            }
+            .introSection .introTexts{
+                position: relative;
+                margin-top: 5%;
+                z-index: 7;
+
+            }
+            .introSection  h1.introTexts::before{
+                box-sizing: border-box;
+                content:'';
+                margin-right:1em;
+                width: 10px;
+                position: absolute;
+                background-color: var(--color-light-brown);
+                top: 15%;
+                bottom: 0;
+                left: -3%;
+                height: 75%;
+            }
+            .introSection h1.introTexts::after{
+                box-sizing: border-box;
+                content:'';
+                margin-right:1em;
+                width: 10px;
+                position: absolute;
+                background-color: var(--color-brown);
+                bottom: 0;
+                left: -3%;
+                height: 8%;
+                top: 5%;
+            }
+           .introSection .introDescription{
+               color: var(--color-light-brown);
+               padding-right: 5em;
+               line-height: 2em;
+               margin:2em 0;
+           }
+           .introSection .buttons{
+              font-size: 1.5em;
+              font-weight: 700;
+           }
+           .introSection .buttons>div{
+               z-index: 5;
+
+           }
+           .introSection .introRight{
+               width: 100%;
+               height: 100%;
+               
+               z-index: 4;
+           }
+           .introSection .introRight #img{
+               width: 90%;
+               z-index: -1;
+           }
+           /* *****End of introduction**** */
+           /*******Beginning of teamSection****/
+           .mainbody .teamSection{
+               color: var(--color-light-brown);
+               background-color:  var(--color-silent);
+               padding: 2em auto;
+           }
+           .teamSection .headTeamSection{
+               text-align: center;
+               padding-bottom: 1em;
+               padding-top: 1em;
+           }
+           .teamSection .teamGrid{
+               width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 5em;
+                padding: 2em auto;
+                box-shadow: 2px 2px 5px var(--color-light);
+           }
+           .teamSection .teamGrid .teamLeft{
+               margin-left: auto;
+           }
+           .teamSection .teamGrid img{
+               width: 40em;
+               height: 40em;
+           }
+           .teamSection .teamGrid h5{
+               color: var(--color-shadow);
+           }
+           .teamSection .teamGrid .teamRight{
+               display: flex;
+               align-items: center;
+               margin-right: 20em;
+           }
+        </style>
+    </head>
+    <body>
+        <div class="headflex">
+            <img src="edulogo.png" id="logo">
+            <div class="innerflex">
+                <div>
+                   About 
+                </div>
+                <div class="courses ">
+                    <div>Courses</div>
+                    <ul class="undercourse none">
+                    <li>Web design</li>
+                    <li>UI/UX</li>
+                    <li>Figma design</li>
+                    <li>Power point</li>
+                    <li>Application designs</li>
+                    </ul>
+                </div>
+                <div>
+                    Discover
+                </div>
+                <div>
+                    Contact
+                </div>
+            </div>
+        </div>
+        <!--End of header flex-->
+        <div class="mainbody">
+            <!--background designs-->
+            <div class='back circle one'> </div>
+            <div class='back circle two'> </div>
+            <div class='back circle three'> </div>
+            <div class='back circle four'> </div>
+            <div class='back circle five'> </div>
+            <div class='back rec six'> </div>
+            <div class='back rec seven'> </div>
+            <!--***beginning of introduction***-->
+            <div class="introSection">
+                <div class="introLeft">
+                    <h1 class="introTexts">
+                        Learn tech <br/>with Edubook
+                    </h1>
+                    <h5 class="introDescription">Become a part of the 
+                        fastest growing education community and learn or earn 
+                        while at home.
+                    </h5>
+                    <div class="buttons">
+                        <div class="btn">Become a student</div>
+                        <div class="btn"> Become a tutor</div>
+                    </div>
+                </div>
+                <div class="introRight">
+                    <!--img src="online_teaching_img.jpg" id="img"-->
+                    <img src="newimg.png" id="img">
+
+                </div>
+            </div>
+            <!--***end of introduction***-->
+
+            <!--***beginning of teamSection***-->
+            <div class="teamSection">
+                <h3 class="headTeamSection">Meet our gurus</h3>
+                <div class="teamGrid">
+                    <div class="teamLeft">
+                        <img src="mm7.jpg">
+                        <h5 class="name">Miss Elena</h5>
+                        <h5 class="shortdes">UI/UX designer</h5>
+                    </div>
+                    <div class="teamRight">
+                        <h4 class="words">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                            Natus, deserunt molestias neque numquam beatae cumque voluptates harum 
+                            nemo repellendus provident sapiente, officiis saepe fugiat adipisci asperiores dolorum blanditiis!
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!--***End of of teamSection***-->
+
+        </div>
+
+        <script>
+            
+        </script>
+    </body>
+</html>

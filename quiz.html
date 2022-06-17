@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+            quiz 
+        </title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html,body{
+                font-size: 62%;
+                background-color: whitesmoke;
+                color: #292828;
+               
+                font-family: sans-serif;
+            }
+            .containerone{
+                margin: 1% 20%;
+            }
+            .head{
+                font-size: 10em;
+                text-align: left;
+                margin-bottom:2em ;
+            }
+            .name{
+                font-size: 5em;
+            }
+            .btn{
+                padding: 1em 4em;
+                background-color: #292828;
+                color: whitesmoke;
+                font-size: 2.5em;
+                text-align: center;
+                margin-top: 5em;
+                border-radius: 0.5em;
+                border: none;
+            }
+            #text{
+                font-size: 0.8em;
+                padding: 0.05em;
+            }
+            .nodisplay{
+                display: none;
+            }
+
+            .flex{
+                display: flex;
+                font-size: 4em;
+
+                margin: 2% 20%;
+            }
+            .timer{
+                color: red;
+                font-size: 1.2em;
+                padding: 0.1em 0.5em;
+            }
+            .right{
+                margin-left: auto;
+            }
+            .questions{
+                font-size: 4.5em;
+                margin-bottom: 3em;
+                margin: 2% 30%;      
+            }
+            .answers{
+                font-size: 4.5em;
+                margin: 2% 30%;
+            }
+            .answers>div{
+                margin-bottom: 1em;
+            }
+            .next{
+                font-size: 4em;
+                padding: 0.4em 0.5em;
+            }
+            .youranswer{
+                font-size: 3em;
+                margin-top: 3em
+            }
+            .target{
+                color: blue;
+            }
+            .last{
+                display: flex;
+                margin: 2% 20%;
+            }
+            .submit{
+                font-size: 4em;
+                padding: 0.4em 0.5em;
+                margin-left: auto;
+            }
+            .containerthree{
+                font-size: 4em;
+                margin: 2% 20%;
+            }
+            .heading{
+                margin: 2% 10%;
+                font-size: 1.5em;
+            }
+            .containerfour{
+                font-size: 4em;
+            }
+            .containerfour>div{
+                margin-bottom: 12%;
+            }
+            .timeup{
+                font-size: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="containerone">
+            <div class="head">Mock post jamb quiz, oau</div>
+            <div class="name">Enter name:<input type="text" id="text"> </div>
+            <button class="btn">Start</button>
+        </div>
+        <div class="containertwo nodisplay">
+            <div class="flex">
+                <div class="left">Oau post-utme mock quiz</div>
+                <div class="right">time left: <span class="timer"></span></div>
+            </div>
+            <div class="questions"></div>
+            <div class="answers">
+                <div class="divA">A:<span class="answer A"> </span> </div>
+                <div class="divB">B:<span class="answer B"></span></div>
+                <div class="divC">C :  <span class="answer C"></span></div>
+                <div class="divD">D :  <span class="answer D"></span></div>
+            </div>
+            <div class="youranswer nodisplay"></div>
+            <div class="last">
+            <button class="next">Next</button>
+            <button class="submit nodisplay">Submit</button>
+            </div>
+        </div>
+        <div class="containerthree nodisplay">
+            <div class="heading">Weldone <span class="named"></span></div>
+            <div class="score">Your score is: <span id="score"></span>/10</div>
+            <div class="timeused">You used: <span id="timeused"></span>seconds</div>
+        </div>
+        <div class="containerfour nodisplay">
+            <div class="timeup">Time up!!!</div>
+            <div class="fail">sorry <span class="nameb"></span>, you failed</div>
+            <div class="improve">you need to improve on your speed ;)</div>
+        </div>
+    <script>
+        var submit = document.querySelector('.submit')
+        var named = document.querySelector('.named')
+        var nameb = document.querySelector('.nameb')
+        var score = document.querySelector('#score')
+        
+        var time = document.querySelector('.timer')
+      /*  setInterval(()=>{
+            var time = document.querySelector('.timer')
+            time.innerHTML = 120 - new Date().getSeconds();
+        },1000)*/
+        const quiz = [
+            {
+                question: 'is goat an animal',
+                A:'yes',
+                B:'no',
+                C:'maybe',
+                D:'not sure',
+                answer:'yes',
+            },
+            {
+                question: 'which of these is a river?',
+                A:'goat',
+                B:'pepper',
+                C:'nile',
+                D:'kilimanjaro',
+                answer:'nile',
+            },
+            {
+                question: 'who is nigeria president',
+                A:'odogwu',
+                B:'ebora owu',
+                C:'jagaban',
+                D:'bubu',
+                answer:'bubu',
+            },
+            {
+                question: 'the name of the coder is',
+                A:'omotola',
+                B:'tantala',
+                C:'lanre',
+                D:'ode',
+                answer:'omotola',
+            },
+            {
+                question: 'youre weak, i am ____?',
+                A:'dont',
+                B:'font',
+                C:'strong',
+                D:'cant',
+                answer:'',
+            },
+            {
+                question: 'its  different thing to read, but a different thing to ____?',
+                A:'wash',
+                B:'eat',
+                C:'pass',
+                D:'sleep',
+                answer:'pass',
+            },
+            {
+                question: 'complete the empty spaces: 1, 2, 4, __, 11, __',
+                A:'8,10',
+                B:'7,16',
+                C:'2,3',
+                D:'4,5',
+                answer:'7,16',
+            },
+            {
+                question: '___ is a supreme being',
+                A:'Satan',
+                B:'God',
+                C:'Micheal',
+                D:'Gabriel',
+                answer:'God',
+            },
+            {
+                question: 'elements below atomic no __ are naturally not radioactive?',
+                A:'92',
+                B:'21',
+                C:'22',
+                D:'44',
+                answer:'92',
+            },
+            {
+                question: '2+2*3 = ',
+                A:'18',
+                B:'1',
+                C:'21',
+                D:'12',
+                answer:'12',
+            },
+        ]
+ 
+        document.querySelector('.btn').addEventListener('click', function(){
+            var name = document.getElementById('text')
+            console.log(text.value)
+            document.querySelector('.containerone').classList.add('nodisplay')
+            document.querySelector('.containertwo').classList.remove('nodisplay')
+            var timeleft = 50;
+            time.innerHTML = timeleft
+            setInterval(()=>{
+               if(timeleft > 0){
+                    timeleft -=1
+                    time.innerHTML = timeleft
+               }
+               else{
+                document.querySelector('.containertwo').classList.add('.nodisplay')
+                document.querySelector('.containerfour').classList.remove('.nodisplay')
+                nameb.innerHTML = document.querySelector('#text').value
+ }
+
+        },1000)
+  })
+  var questions = document.querySelector('.questions')
+  var A = document.querySelector('.A')
+  var B = document.querySelector('.B')
+  var C = document.querySelector('.C')
+  var D = document.querySelector('.D')
+  var i = 0
+  var b = 0
+  questions.innerHTML = quiz[i].question
+  A.innerHTML = quiz[i].A
+  B.innerHTML = quiz[i].B
+  C.innerHTML = quiz[i].C
+  D.innerHTML = quiz[i].D
+var answers =document.querySelectorAll('.answer')
+var youranswer = document.querySelector('.youranswer')
+answers.forEach((answer)=>{
+    answer.addEventListener('click', function(event){
+        var target = event.target
+        console.log(target)
+
+       youranswer.innerHTML = target.innerHTML
+       if(youranswer.innerHTML = target.innerHTML){
+           target.classList.add('target')
+       }
+       document.addEventListener("click", function () {
+          if (youranswer.innerHTML != target.innerHTML && target.classList.contains("target")) {
+            target.classList.remove("target");
+          }
+        })
+
+    })
+})
+
+document.querySelector('.next').addEventListener('click', function(){
+    if(youranswer.innerHTML === quiz[i].answer){
+        b = b+1
+        console.log(b)
+    }
+    i++
+
+    questions.innerHTML = quiz[i].question
+  A.innerHTML = quiz[i].A
+  B.innerHTML = quiz[i].B
+  C.innerHTML = quiz[i].C
+  D.innerHTML = quiz[i].D
+ if(i === quiz.length -1){
+        submit.classList.remove('nodisplay')
+        document.querySelector('.next').classList.add('nodisplay')
+ }
+ submit.addEventListener('click', function(){
+    document.querySelector('.containertwo').classList.add('nodisplay')
+    document.querySelector('.containerthree').classList.remove('nodisplay')
+    named.innerHTML = document.querySelector('#text').value
+    score.innerHTML = b
+    document.getElementById('timeused').innerHTML = 50-(time.innerHTML)
+    
+ })
+ 
+})
+
+  </script>
+</html>

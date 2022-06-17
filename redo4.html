@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>media query</title>
+    <style>
+      body {
+        background-color: white;
+        font-size: 16px;
+        color: #3d3b3b;
+        font-family: sans-serif;
+      }
+      div {
+        margin-bottom: 12px;
+      }
+      .boldtext {
+        font-weight: bold;
+        color: black;
+        text-transform: uppercase;
+      }
+      .orange {
+        color: hsl(26, 100%, 55%);
+        font-size: 16px;
+        letter-spacing: 5px;
+      }
+      .flex {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        font-size: 16px;
+        border-bottom: 1px solid #ececec;
+        margin: 10px 300px;
+      }
+      .bike {
+        font-size: 24px;
+      }
+      .last {
+        margin-left: auto;
+      }
+      #imgtop {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 100px;
+        padding: 50px 350px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        margin-top: 10px;
+        width: 100%;
+        gap: 20px;
+      }
+      .border {
+        border: 2px solid rgb(255, 94, 0);
+      }
+      .last {
+        display: flex;
+      }
+      #cart {
+        margin-right: 30px;
+        width: 30px;
+        height: 30px;
+      }
+      #img {
+        height: 350px;
+        width: 100%;
+
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+      #image {
+        width: 100%;
+        height: 80px;
+        border-radius: 5px;
+      }
+      #image:hover {
+        opacity: 0.5;
+      }
+      .box1 {
+        width: 450px;
+      }
+      .opacity {
+        opacity: 0.6;
+      }
+      .box2 {
+        margin-top: 50px;
+        width: 100%;
+      }
+      .up {
+        font-size: 33px;
+
+        text-transform: capitalize;
+        margin-bottom: 20px;
+      }
+      .control {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 10px;
+        gap: 30px;
+      }
+      .grid1 {
+        display: flex;
+        grid-template-columns: 1fr 1fr 1fr;
+        font-size: 20px;
+        color: black;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: whitesmoke;
+        text-align: center;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .left,
+      .right {
+        color: rgb(255, 94, 0);
+        font-size: 20px;
+      }
+      .cart {
+        color: white;
+        background-color: rgb(255, 94, 0);
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        padding: 7px;
+        font-size: 22px;
+      }
+      .miniflex {
+        display: flex;
+        gap: 20px;
+        margin-top: 50px;
+        margin-bottom: 40px;
+      }
+      .money {
+        font-size: 26px;
+      }
+      .fifty {
+        background-color: whitesmoke;
+        border-radius: 5px;
+        padding: 4px;
+      }
+      @media screen and (min-width: 0px) and (max-width: 1000px) {
+        .container {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 20px 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="bike boldtext">Sneakers</div>
+      <div>Collections</div>
+      <div>Men</div>
+      <div>Women</div>
+      <div>About</div>
+      <div>Contact</div>
+      <div class="last">
+        <img src="icon-cart.svg" id="cart" />
+        <img src="image-avatar.png" id="imgtop" />
+      </div>
+    </div>
+    <div class="container">
+      <div class="box1">
+        <div class="top"><img src="image-product-1.jpg" id="img" /></div>
+        <div class="grid">
+          <div class="image first">
+            <img src="image-product-1.jpg" id="image" />
+          </div>
+          <div class="image second">
+            <img src="image-product-2.jpg" id="image" />
+          </div>
+          <div class="image third">
+            <img src="image-product-3.jpg" id="image" />
+          </div>
+          <div class="image fourth">
+            <img src="image-product-4.jpg" id="image" />
+          </div>
+        </div>
+      </div>
+      <div class="box2">
+        <div class="name orange">SNEAKERS COMPANY</div>
+        <div class="up boldtext">Fall limited edition Sneakers</div>
+        <div class="body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quo
+          error consectetur repudiandae velit veritatis itaque provident
+          dolorem, vitae eveniet optio exercitationem rerum odit sunt! Dolores,
+          ab optio.
+          
+        </div>
+        <div class="miniflex">
+          <div class="money boldtext">$125.00</div>
+          <div class="fifty orange">50%</div>
+        </div>
+        <div class="control">
+          <div class="grid1">
+            <div class="sign left">-</div>
+            <div class="middle">0</div>
+            <div class="sign right">+</div>
+          </div>
+          <div class="cart">Add to cart</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var img = document.getElementById("img");
+      var images = document.querySelectorAll("#image");
+      images.forEach((image) => {
+        image.addEventListener("click", function (event) {
+          var target = event.target;
+          img.src = target.src;
+          target.classList.add("opacity");
+          target.classList.add("border");
+        });
+        document.addEventListener("click", function () {
+          if (image.src != img.src && image.classList.contains("opacity")) {
+            image.classList.remove("opacity");
+            image.classList.remove("border");
+          }
+        });
+      });
+      var signs = document.querySelectorAll(".sign");
+      var i = 0;
+      signs.forEach((sign) => {
+        sign.addEventListener("click", function (event) {
+          var operator = event.target;
+
+          var number = document.querySelector(".middle");
+          number.innerHTML = i;
+          if (operator.classList.contains("left")) {
+            i--;
+            number.innerHTML = i;
+          } else if (operator.classList.contains("right")) {
+            i++;
+            number.innerHTML = i;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Filter property</title>
+        <style> 
+        </style>
+    </head>
+    <body>
+
+        <script>
+            var ages = [32, 45, 27, 16, 28, 94,15];
+            var result = ages.filter( age=> age>=32);
+           console.log(result)
+
+           var animals = ['goat', 'sheep', 'cow', 'ant', 'elephant']
+           /*var rst = animals.filter(checkname)
+           function checkname(animal){
+           return animal.length>3
+           }*/
+           
+          // console.log(animals.filter(animal=>animal.length>3))
+
+        const array = [-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10];
+        console.log(array.filter(myfunc))
+        function myfunc(fun){
+           if(fun%2==0){
+               return fun
+           }
+        }
+             /*   function isprime(num){
+            for(let i = 2; num > 1; i++){
+                if(num %i ==0){
+                    return false;
+                }
+            }
+            return num;
+        }
+        console.log(array.filter(isprime));*/
+        </script>
+    </body>
+</html>

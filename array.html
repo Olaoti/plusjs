@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            html,body{
+                width: 100%;
+                
+                font-size: 20px;
+                color: black;
+            }
+            .div{
+                margin: 4% 20%;
+                display: grid;
+                grid-template-columns: 6fr 2fr 3fr;
+                text-align: center;
+            }
+            .quantity{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                text-align: center;
+            }
+            .div>div{
+                border: 1px solid red;
+            }
+            .total{
+                text-align: center;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="body">
+            <div class="grid">
+            <div class="div">
+                <div class="name">dnbfjkbnsm</div>
+                <div class="price">50</div>
+                <div class="quantity">
+                    <div class="sign min">-</div>
+                    <div class="inner">0</div>
+                    <div class="sign plus">+</div>
+                </div>
+            </div>
+            <div class="div">
+                <div class="name">dnbfjkbnsm</div>
+                <div class="price">60</div>
+                <div class="quantity">
+                    <div class="sign min">-</div>
+                    <div class="inner">0</div>
+                    <div class="sign plus">+</div>
+                </div>
+            </div>
+            <div class="div">
+                <div class="name">dnbfjkbnsm</div>
+                <div class="price">70</div>
+                <div class="quantity">
+                    <div class="sign min">-</div>
+                    <div class="inner">0</div>
+                    <div class="sign plus">+</div>
+                </div>
+            </div>
+            <div class="div">
+                <div class="name">dnbfjkbnsm</div>
+                <div class="price">25</div>
+                <div class="quantity">
+                    <div class="sign min">-</div>
+                    <div class="inner">0</div>
+                    <div class="sign plus">+</div>
+                </div>
+            </div>
+            <div class="div">
+                <div class="name">dnbfjkbnsm</div>
+                <div class="price">42</div>
+                <div class="quantity">
+                    <div class="sign min">-</div>
+                    <div class="inner">0</div>
+                    <div class="sign plus">+</div>
+                </div>
+            </div>
+            <div class="div">
+                <div class="name">dnbfjkbnsm</div>
+                <div class="price">32</div>
+                <div class="quantity">
+                    <div class="sign min">-</div>
+                    <div class="inner">0</div>
+                    <div class="sign plus">+</div>
+                </div>
+            </div>
+            </div>
+            <div class="total">
+                <h2>Total items:<div class="totitem"></div>
+                </h2>
+                <h2>Total price:<div class="totprice"></div>
+                    </h2>
+            </div>
+            <button class="reset" style="text-align:center; margin-left: 40%; font-size:25px;">reset</button>
+        </div>
+        <script>
+            var items = document.querySelectorAll('.inner')
+            var prices = document.querySelectorAll('.price')
+            var pluss = document.querySelectorAll('.plus')
+            var mins = document.querySelectorAll('.min')
+            var minsArr = Array.from(mins)
+            var plussArr = Array.from(pluss)
+            var itemArr = Array.from(items)
+            var priceArr = Array.from(prices)
+            var totitem = document.querySelector('.totitem')
+            var totprice = document.querySelector('.totprice')
+            var totalitem = 0
+            var totalprice = 0
+          /*  console.log(priceArr)
+            console.log(plussArr[0].innerHTML)
+            console.log(priceArr[0].innerHTML)
+*/
+            items.forEach(item=>{
+                item.classList.add(itemArr.indexOf(item))
+            })
+                prices.forEach(price=>{
+                    price.classList.add(priceArr.indexOf(price))
+        })
+           mins.forEach(min=>{
+                min.classList.add(minsArr.indexOf(min))
+            })
+            pluss.forEach(plus=>{
+                plus.classList.add(plussArr.indexOf(plus))
+                console.log(plus.className)
+            })
+           
+            pluss.forEach(plus=>{
+                plus.addEventListener('click', function(){
+                    items.forEach(item=>{
+                    if(item.classList.contains(plussArr.indexOf(plus))){
+                        console.log(item)
+                        item.innerHTML++
+                        totalitem++
+                    }
+                })
+                totitem.innerHTML = totalitem
+
+               prices.forEach(price=>{
+                    if(price.classList.contains(plussArr.indexOf(plus))){
+                        unitprice=price.innerHTML
+                        console.log(unitprice)
+                        totalprice+=Number(price.innerHTML)
+                    }
+                })
+                totprice.innerHTML = totalprice
+                })
+            })
+            mins.forEach(min=>{
+                min.addEventListener('click', function(){
+                    var itemm = items[minsArr.indexOf(min)]
+
+prices.forEach(price=>{
+
+     if (price.classList.contains(minsArr.indexOf(min))&&itemm.innerHTML>0){
+             unitprice=price.innerHTML
+         totalprice-=Number(price.innerHTML)             
+     }else{
+         console.log('bm')
+         totalprice=totalprice
+     }
+ 
+})
+                    items.forEach(item=>{
+                    if(item.classList.contains(minsArr.indexOf(min))&& item.innerHTML>0){
+                        console.log(item)
+                        item.innerHTML--
+                        totalitem--
+                    }else{
+                        item.innerHTML = item.innerHTML
+                        totalitem = totalitem
+                    }
+                
+            })
+            
+                totitem.innerHTML = totalitem
+
+    
+                totprice.innerHTML = totalprice
+            })
+            })
+            document.querySelector('.reset').addEventListener('click', function(){
+                totalprice =0
+                totalitem = 0
+                totitem.innerHTML = totalitem
+                totprice.innerHTML = totalprice
+                items.forEach(item=>{
+                    item.innerHTML = 0
+            })
+            })
+        </script>
+    </body>
+</html>

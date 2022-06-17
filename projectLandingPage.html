@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Landing page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+        <style>
+            :root{
+                --color-deep-green: rgb(5, 79, 5);
+                --color-light-green: rgb(5, 146, 5);
+                --color-silent:rgb(55, 174, 55);
+                --color-shadow:rgb(27, 90, 27);
+                --color-white:rgb(213, 246, 213);
+            }
+            *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                text-decoration: none;
+                outline: none;
+                list-style: none;
+                border: 0;
+                appearance: none;
+            }
+            html{
+                width: 100vw;
+                height: 100vh;
+            }
+            body{
+                font-family: Poppins, sans-serif;
+                font-size: 62%;
+                user-select: none;
+                overflow-x: hidden;
+                background-color: white;
+            }
+            h1{
+                font-size:4em;
+            }
+            h2{
+                font-size: 3em;
+            }
+            h3{
+                font-size: 2em;
+            }
+            h4{
+                font-size: 1.8em;
+            }
+            .bold{
+                font-weight: 900;
+            }
+            .back{
+                position: absolute;
+                z-index: 1;
+            }
+            .circle{
+                border-radius: 50%;
+                background-color: rgba(45, 248, 45, 0.3);
+                animation: move 20s infinite alternate-reverse;
+                z-index: 1;
+            }
+            .one{
+                top: 20%;
+                left: 5%;
+                width: 6em;
+                height: 6em;
+                background-color: inherit;
+                border: 2px solid rgba(45, 248, 45, 0.6);
+            }
+            .two{
+                width: 9em;
+                height: 9em;
+                top: 30%;
+                left: 70%;
+                animation: movee 12s infinite alternate-reverse;
+                background-color: inherit;
+                border: 2px solid rgba(45, 248, 45, 0.6);
+            }
+            /*.three{
+                top:35% ;
+                left:80%;
+                width: 5em;
+                height: 5em;
+            }*/
+
+            .btn{
+                width: max-content;
+                background: linear-gradient(to right, var(--color-silent), var(--color-deep-green)) ;
+                box-shadow: 2px 2px 5px var(--color-shadow);
+                padding: .5em 1em;
+                border-radius: 5px;
+                font-size: 2em;
+                color: white;
+                transition: all 300ms ease;
+                font-weight: 600;
+                margin-bottom: 3em;
+            }
+            .btn:hover{
+                background: linear-gradient(to right, var(--color-white), var(--color-silent));
+                color: var(--color-deep-green);
+            }
+            .contactSection{
+                text-align: center;
+            }
+            @keyframes move{
+                0%{
+                    transform: translate(100px,250px) ;
+                }
+                50%{
+                    transform: translate(0);
+                }
+                100%{
+                    transform: translate(100px,250px);
+                }
+            }
+            @keyframes movee{
+                0%{
+                    transform: translate(0) ;
+                }
+                50%{
+                    transform: translate(190px,200px);
+                }
+                100%{
+                    transform: translate(0);
+                }
+            }
+            .header{
+                z-index: 9;
+                display: flex;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                padding: 0.5em 3em;
+                background-color: var(--color-deep-green);
+                color: white;
+                box-shadow: 2px 2px 3px var(--color-silent);
+            }
+            .header .logo{
+                margin-right: auto;
+            }
+            .introSection{
+                width: 100%;
+                height: 100%;
+                position: relative;
+                z-index: 5;
+            }
+            .mainIntroSection{
+                color: var(--color-deep-green);
+                padding: 5% 10%;
+
+            }
+            .mainIntroSection h1{
+                margin-top: 2em;
+            }
+            .mainIntroSection h3{
+                margin-top: 1em;
+            }
+
+            /*Beginning of top section*/
+            .topSection{
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                margin-bottom: 6em;
+                height: 100%;
+
+            }
+            .topSection .topLeft{
+                
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: auto 0;
+                margin-right: 4em;
+            }
+            .topSection .topLeft h1{
+                margin-bottom: 1em;
+            }
+            .topSection .topRight{
+                background-color: white;
+                margin-left: 4em;
+                margin-top: 3em;
+                padding: 2em 5em;
+                border: 15px solid var(--color-deep-green);
+                z-index: 5
+            }
+            .topSection .topRight h2{
+                margin-bottom: 1em;
+            }
+            /*End of top secion*/
+            .mainIntroSection .lowerSection .lowerSectionBody{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4em;
+            font-weight: 400;
+            }
+            .mainIntroSection .lowerSection .subBody{
+            background-color: rgba(45, 248, 45, 0.3);
+            color: var(--color-green);
+            box-shadow: 3px 3px 3px var(--color-silent);
+            border-radius: 10px;
+            display: flex;
+            gap: 2em;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2em 4em ;
+            }
+            .lowerSection .subBody .icon{
+             width: 6em;
+             height:6em;
+             border-radius: 50%;
+            background-color: rgb(248, 250, 248);
+            }
+            .lowerSection .subBody .subAboutWord{
+            color: var(--color-green);
+            }      
+            @media screen and (min-width:0) and (max-width: 850px) {
+                .header{
+                    padding: 0.5em 0.4em;
+                }
+                .header h1{
+                    font-size: 2.5em;
+                }
+                .mainIntroSection{
+                padding:2% 10%;
+                }
+
+                .topSection{
+                    grid-template-columns: 1fr;
+                    margin-top:1em;
+                }
+                .topSection .topLeft{
+                    margin-right: 1em;
+                }
+                .topSection .topRight{
+                    margin: 2em 0.5em;
+                    padding: 1em 1.5em;
+                }
+                .topSection .topLeft h1{
+                margin-bottom: 0.5em;
+                }
+                .mainIntroSection .lowerSection .lowerSectionBody{
+                    grid-template-columns: 1fr;
+                }
+                .btn{
+                    margin-top: 2em;
+                }
+            }
+
+        </style>
+        <body>
+            <div class="header">
+                <h1 class="logo">Logo</h1>
+                <h1 class="name bold">Company's name</h1>
+            </div>
+            
+            <div class="mainIntroSection">
+                <div class='back circle one'> </div>
+                <div class='back circle two'> </div>
+                <div class='back circle three'> </div>
+                   
+                <div class="topSection">
+                    <div class="topLeft">
+                        <h1 class="headTexts">
+                            I am a placeholder
+                        </h1>
+                        <h4 class="topBodyTexts">
+                            Lorem ipsum dolor sit, amet
+                             consectetur adipisicing elit. Laboriosam nobis architecto tempora
+                              ullam blanditiis enim aliquid totam, illum numquam veritatis 
+                            consequuntur provident porro tenetur corporis?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Quod magnam sed dolore iure quasi dolorem!
+                        </h4>
+                    </div>
+                    <div class="topRight">
+                        <h2 class="rightHead">
+                            A placeholder
+                        </h2>
+                        <h4 class="rightBody">
+                            Lorem ipsum dolor sit amet consectetur, 
+                            adipisicing elit. Dolorem sunt provident 
+                            laudantium molestiae excepturi 
+                            maiores expedita placeat quod libero ipsam!
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, illum.
+                        </h4>
+                    </div>
+                </div>
+                    <!--End of top section-->
+                    <div class="lowerSection">
+                        <div class="lowerSectionBody">
+                            <div class="subBody">
+                              <div class="icon"> </div>
+                              <h3 class="subWord">
+                                sbfe rebr ea b,fe mfg, sg as gfg h nghf ghrugnrsnmfbnd vgfh,g fbd gf
+                                dg df nfhg fg fk,ngh fbn gmf gnf gh fgj f gh
+                              </h3>
+                            </div>
+                            <div class="subBody">
+                              <div class="icon"> </div>
+                              <h3 class="subWord">
+                                zifv,m bhn sbfe rebr ea b,fe mfg, sg as gfg h nghf ghrugnrsnmfbnd
+                                vgfh,g fbd gf dg df nfhg fg fk,ngh fbn gmf gnf gh fgj f gh
+                              </h3>
+                            </div>
+                            <div class="subBody">
+                              <div class="icon"> </div>
+                              <h3 class="subWord">
+                                dfb,m sbfe rebr ea b,fe mfg, sg as gfg h nghf ghrugnrsnmfbnd vgfh,g
+                                fbd gf dg df nfhg fg fk,ngh fbn gmf gnf gh fgj f gh
+                              </h3>
+                            </div>
+                          </div>
+
+                </div>
+            </div>
+            </div>
+            <div class="contactSection">
+                <button class="btn">Email us</button>
+            </div>
+        </body>
+    </head>
+</html>

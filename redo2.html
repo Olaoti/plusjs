@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>quote</title>
+    <style>
+      html {
+        width: 100%;
+        height: 100%;
+        color: white;
+      }
+      body {
+        background-color: rgb(161, 158, 158);
+      }
+      .container {
+        margin: 150px 300px;
+        padding: 100px;
+        background-color: rgb(194, 193, 193);
+        color: rgb(70, 67, 67);
+      }
+      div {
+        margin-top: 20px;
+      }
+      .top {
+        font-size: 45px;
+        font-weight: bold;
+      }
+      .quotationmark {
+        font-size: 150px;
+      }
+      .top {
+        text-align: center;
+      }
+      .theQuote {
+        font-size: 40px;
+        text-align: left;
+      }
+      .author {
+        text-align: right;
+        color: rgb(52, 151, 151);
+        font-size: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">Generate Quote</div>
+      <div class="dQuote">
+        <span class="quotationmark">"</span
+        ><span class="theQuote">
+          consectetur adipisicing elit. Cumque dolore et mollitia, hic
+          necessitatibus corrupti qui odit autem excepturi adipisci unde?
+          Quos!</span
+        >
+      </div>
+      <div class="author">who knows</div>
+    </div>
+
+    <script>
+      const quotes = [
+        {
+          quote:
+            "life is a beast but you may not know until you die in heaven and you have to know",
+          author: " a stupid person",
+        },
+        {
+          quote:
+            "sbdvjbsjcdvj d  vdfvvfsj d s f  sd jfsd fstd s g s d s f sydgyefe e yerfgdfgd f d fgdgvfjdvf d vf dfdhfvhyfy",
+          author: " a random quote",
+        },
+        {
+          quote:
+            " life is not dark but its very sweet until you ask to know, inface very sweet and very lively but not that sweet as i just lied",
+          author: "anonymous",
+        },
+        {
+          quote:
+            "wow, another stupid thing to type here o ksbdcj hsjvsbcf uhfnsvdbcmvgdvsgv vbfdnshvh fvjdvc vjcdvjhcvh h cdbjhvjds",
+          author: "an idiot",
+        },
+        {
+          quote:
+            "no strength k.n,dfmvdsjbfkdf,d f dfudhfk dfdjfgd nshyuefg uytehrge  re hgfbdfggd  fgdfdhfhdhf d gfmbmfjbkggfg ugd",
+          author: "a goat",
+        },
+        {
+          quote:
+            " stress at its peak is not for you but you may like it thom, till then tsgbs ts g tsb  sgfj",
+          author: " a brainiac",
+        },
+        {
+          quote:
+            "odhhhh... another banger ooo but i ghats do it  ,ksbfjcgjsv  vfcdvjddy d cfftvfvd  fdvfveyyr egrv ggsg fggfgg",
+          author: "a bull dog",
+        },
+        {
+          quote:
+            " music is sweet if you add sugar but do not add salt or else it gets salty no cap bro ,kkfbnv,fbe f fby dfbud",
+          author: " mc karamo",
+        },
+        {
+          quote:
+            "cut a lung today and save a life, well, you may get hurt in the process, and probably die ksjbdcvj fcv f",
+          author: " doctor death",
+        },
+        {
+          quote:
+            "its very easy to make it and also very easy to lose vcbgh  g n fguhr jhr jg d  gfgduhdf d fhdjgfug f ",
+          author: "unknown",
+        },
+        {
+          quote:
+            "this is well the last on the list but well, it may be the first for math.random sake sha, i dont want to know tho",
+          author: "methor omotolaa",
+        },
+      ];
+      document.querySelector(".top").addEventListener("click", function () {
+        var random = Math.random() * quotes.length;
+        ranDom = Math.floor(random);
+        // console.log(ranDom);
+        document.querySelector(".theQuote").textContent = quotes[ranDom].quote;
+        document.querySelector(".author").textContent = quotes[ranDom].author;
+      });
+    </script>
+  </body>
+</html>

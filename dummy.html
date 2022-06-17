@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>head</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .one,.two{
+                
+                background-color: aqua;
+                text-align: center;
+                text-justify: center;
+            }
+           
+            .body{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                margin: 0% 5% 0;
+                padding: 20%;
+                gap: 500px;
+            }
+            .rotate{
+                transform: rotate(40deg);
+                transition: transform 0.5s;
+            }
+            .slide{
+                transform: translateX(530px);
+                transition: transform 3s;
+                        }
+            .box{
+                margin:0 40%;
+                color: black;
+            }
+            .goup{
+                transform: translateY(-530px);
+                transition: transform 3s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="body">
+        <div class="img one"><img src="bike2.jfif"></div>
+        <div class="img two"><img src="bike3.jfif"></div>
+        </div>
+        <div class="box">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, sunt. Sunt ut quia voluptatibus
+             itaque aspernatur soluta natus quam, modi cupiditate similique molestiae rerum mollitia ratione non assumenda provident error eveniet aliquid quis. Velit veritatis accusantium placeat 
+            porro adipisci reprehenderit, nihil iure, accusamus illum recusandae autem facere rerum. Maiores, provident.</div>
+    </body>
+    <script>
+                var two = document.querySelector('.two')
+        var one = document.querySelector('.one')
+        one.addEventListener('click', function(){
+            one.classList.add('slide')
+            setInterval(()=>{
+            two.classList.add('rotate')   
+    },2600)
+        })
+
+
+   var box =  document.querySelector('.box')
+   box.addEventListener('click', function(){
+    box.classList.add('goup')
+    })
+    </script>
+</html>

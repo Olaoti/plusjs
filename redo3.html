@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<htmml lang="en">
+  <head>
+    <title>pass a message</title>
+    <style>
+      html {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        color: rgb(36, 35, 35);
+        font-weight: bold;
+        font-size: 26px;
+        background-color: rgb(129, 203, 228);
+      }
+      .container {
+        background-color: whitesmoke;
+        padding: 20px;
+        margin: 250px;
+        text-align: center;
+        text-transform: capitalize;
+      }
+      div {
+        margin-bottom: 20px;
+      }
+      #text {
+        width: 850px;
+        font-size: 24px;
+        color: rgb(39, 36, 36);
+        height: 50px;
+        text-emphasis: none;
+        border-radius: 1px solid grey;
+      }
+      .btn {
+        border-radius: 5px;
+        background-color: rgb(129, 203, 228);
+        padding: 15px;
+        width: max-content;
+        margin: 20px auto;
+        color: whitesmoke;
+      }
+      .btn:hover {
+        background-color: white;
+        color: rgb(129, 203, 228);
+      }
+      .btn:active {
+        color: red;
+      }
+      .noText {
+        background-color: rgb(245, 167, 193);
+        height: 50px;
+      }
+      .noDisplay {
+        display: none;
+      }
+      @media screen and (min-width: 0px) and (max-width: 1000px) {
+        .container {
+          font-size: 40px;
+          width: 100%;
+          height: 100%;
+          background-color: aqua;
+          margin: 20px;
+          padding: 10px;
+          text-align: center;
+        }
+        body {
+          background-color: white;
+        }
+        div {
+          margin-bottom: 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="head">A message you would like to pass</div>
+      <div class="textarea">
+        <input type="text" id="text" value="type a message" />
+      </div>
+      <div class="submit btn">submit</div>
+      <div class="noDisplay noText">Please, type in a message</div>
+      <div class="last">Last message delivered</div>
+      <div class="newmsg"></div>
+    </div>
+    <script>
+      var value = document.getElementById("text").value;
+      document
+        .querySelector(".container")
+        .addEventListener("click", function () {
+          document.getElementById("text").value = "";
+        });
+      document.querySelector(".submit").addEventListener("click", function () {
+        var message = document.getElementById("text").value;
+        document.querySelector(".newmsg").textContent = message;
+        if (document.getElementById("text").value === "") {
+          var notext = document.querySelector(".noText");
+          notext.classList.remove("noDisplay");
+          setTimeout(() => {
+            notext.classList.add("noDisplay");
+          }, 2000);
+        }
+      });
+    </script>
+  </body>
+</htmml>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        background-color: rgb(252, 248, 248);
+        color: rgb(34, 28, 28);
+        text-transform: capitalize;
+        text-align: center;
+        margin-top: 40px;
+      }
+      div{
+        margin-bottom: 60px;
+      }
+
+      input {
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        color: black;
+        font-size: 20px;
+      }
+      span {
+        margin-left: 10px;
+      }
+      .equation {
+        font-size: 30px;
+      }
+      button{
+        margin-top: 20px;
+        padding: 5px;
+        background-color: #ededed;
+        color: rgb(26, 44, 44);
+        font-size: 25px;
+        margin-bottom: 30px;
+      }
+      button:hover{
+        color: red;
+      }
+      .answer1,.answer2{
+        font-size: 25px;
+        color: rgb(51, 23, 23);
+        text-transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <h2>quadratic eqn in the form <span class="eqn">Ax^2 + Bx + C</span></h4>
+      <div class="equation">
+        <span class="text one"><input type="text" id="one" /></span>x^2 +
+        <span class="text two"><input type="text" id="two" /></span>x +
+        <span class="text three"><input type="text" id="three" /></span>
+      </div>
+      <button class="solve">solve</button>
+      <div class="answer1"></div>
+      <div class="answer2"></div>
+    </div>
+    <script>
+      document.querySelector(".solve").addEventListener("click", function () {
+        var a = document.getElementById("one").value;
+        var b = document.getElementById("two").value;
+        var c = document.getElementById("three").value;
+        var x1 = document.querySelector(".answer1");
+        var x2 = document.querySelector(".answer2");
+        var d = -b / (2 * a);
+
+        var e = Math.pow(d, 2);
+        if (e > c / a) {
+          x1.innerHTML =`X1 = ${d - Math.sqrt(e - c / a)}`;
+          x2.innerHTML = `X2 = ${d + Math.sqrt(e - c / a)}`;
+        } else if (e < c / a) {
+          x1.innerHTML = `X1 = ${d}- ${Math.sqrt(-e + c / a)} i`;
+          x2.innerHTML = `X2 = ${d}+ ${Math.sqrt(-e + c / a)} i`;
+        } else if ((e = c / a)) {
+          x1.innerHTML = `X1 = ${d}`;
+          x2.innerHTML =`X2 = ${d}`;
+        }
+      });
+    </script>
+  </body>
+</html>

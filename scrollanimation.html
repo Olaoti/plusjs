@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Animation on click to scroll</title>
+        <style>
+              *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                text-decoration: none;
+                outline: none;
+                list-style: none;
+                border: 0;
+                appearance: none;
+            }
+            html{
+                width: 100%;
+                height: 100%;
+                color: white;
+                scroll-behavior: smooth;
+            }
+          
+            .container{
+                width: 100%;
+                height: 100%;
+
+            }
+            .down, .up{
+                position: fixed;
+                background-color: black;
+                border: blue;
+                color: white;
+                padding: 5px;
+                font-size: 40px;
+                width: 100%;
+                text-align: center;
+                z-index: 10;
+            }
+            .up{
+                top: 50px;
+            }
+            .div{
+                position: relative;
+               display: none;
+            }
+            .active{
+                height: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                z-index: 9;
+                transition: all 0.4s ease;
+            }
+            .left, .right{
+                top: 10rem;
+                height: 100vh;
+                width: 100%;
+            }
+            .left{
+                padding: 2% 10%;
+            }
+            .head{
+                font-size: 30px;
+                margin: 10% auto;
+            }
+            .body{
+                font-size: 20px;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+       <div class="down">
+            down
+        </div>
+        <div class="up">
+            Up
+        </div>
+        <div class="container">
+            <div class="div">
+                <div class="left" style="background-color: black;">
+                    <div class="head">Check this out</div>
+                    <div class="body">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Non quis placeat deleniti reprehenderit exercitationem, possimus,
+                         natus, quod porro provident a dolores commodi neque perferendis quia.
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="mm6.jpg">
+                </div>
+            </div>
+            <div class="div">
+                <div class="left" style="background-color: blue;">
+                    <div class="head">Check this out again</div>
+                    <div class="body">
+                        yaaaayyyyy
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Non quis placeat deleniti reprehenderit exercitationem, possimus,
+                         natus, quod porro provident a dolores commodi neque perferendis quia.
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="mm7.jpg">
+                </div>
+            </div>
+            <div class="div">
+                <div class="left" style="background-color: green;">
+                    <div class="head">Do not look</div>
+                    <div class="body">
+                        yesss
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Non quis placeat deleniti reprehenderit exercitationem, possimus,
+                         natus, quod porro provident a dolores commodi neque perferendis quia.
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="mm6.jpg">
+                </div>
+            </div>
+            <div class="div">
+                <div class="left" style="background-color: navy;">
+                    <div class="head">Check this out</div>
+                    <div class="body">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Non quis placeat deleniti reprehenderit exercitationem, possimus,
+                         natus, quod porro provident a dolores commodi neque perferendis quia.
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="mm7.jpg">
+                </div>
+            </div>
+        </div>
+        <script>
+            var divs = document.querySelectorAll('.div')
+            var arrays = Array.from(divs)
+            var down = document.querySelector('.down')
+            var up = document.querySelector('.up')
+
+            var container = document.querySelector('.container')
+            var userscroll = false
+            var counter = 0;
+
+            arrays.forEach(array=>{
+                var i=0
+                
+                arrays[i].classList.add('active')
+                down.addEventListener('click', function(event){
+                    i++
+            var height = window.innerHeight*i
+
+                arrays[i].classList.add('active')
+                window.scrollTo(0,2000)
+                 setTimeout(function(){
+                if(arrays.indexOf(array)!== i){
+                    array.classList.remove('active')
+                }
+            },300)
+                   
+                })  
+                up.addEventListener('click', function(event){
+                    i--
+            var height = window.innerHeight*i
+
+                arrays[i].classList.add('active')
+                window.scrollTo(0,-2000)
+                 setTimeout(function(){
+                if(arrays.indexOf(array)!== i){
+                    array.classList.remove('active')
+                }
+            },300)
+                   
+                })  
+            })
+        </script>
+    </body>
+</html>
